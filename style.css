@@ -11,7 +11,21 @@ body{
 .container {
     display: flex;
     background-color: lightcoral;
-    width: 100vh;
+    max-width: 100vh;
     height: 100vh;
     margin: auto;
+    flex-wrap: wrap;
 }
+
+.square {
+    display: flex;
+    background-color: rgb(226, 205, 13);
+    flex: 1;
+    min-width: 6.25%;
+    min-height: 10px;
+    border: 1px solid black;
+}
+
+/* .square:hover{
+    background-color: black;
+} */
