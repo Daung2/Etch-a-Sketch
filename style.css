@@ -7,22 +7,22 @@
 body{
     display: flex;
     width: 100vw;
-    height: 100vh;
+    background-color: rgb(8, 15, 22);
     justify-content: end;
 }
 
 .container {
     display: flex;
     background-color: lightcoral;
-    /* width: 80vw; */
-    height: 100vh;
+    max-width: 80%;
+    max-height: 100vh;
     flex-wrap: wrap;
     
 }
 
 .square {
     display: flex;
-    background-color: rgb(226, 205, 13);
+    background-color: rgb(255, 255, 255);
     flex: 1 1 auto;
 }
 
