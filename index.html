@@ -7,9 +7,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="adjust" id="adjust">
-        <input type="number" name="number" id="pixNumber">
-        <button onclick="changePixel()">click me</button>
+    
+    <div class="adjust" id="adjust" >
+        <h1>Drawing Is Not Boring</h1>
+        <div class="pixelChange">
+            <label for="range">The Scale of Block: </label><span> 16 x 16</span><br>
+            <input type="range" value="16" min="0" max="100" id="pixel" class="pixel">
+            <button onclick="changePixel()">click me</button>
+        </div>
+
+        <div class="colorChange">
+            <label for="color">Chane the Color</label><br>
+            <input type="color" name="color" id="color">
+            <button>Change Color</button>
+        </div>
+        <div class="changeStyle">
+            <button>Radom Color</button>
+            <button>Original Color</button>
+        </div>
+        
     </div>
     <div class="container" id="container">
 

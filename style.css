@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: monospace;
+    color: beige;
 }
 
 body{
@@ -13,8 +15,8 @@ body{
 
 .container {
     display: flex;
-    background-color: lightcoral;
-    max-width: 80%;
+    background-color: rgb(255, 255, 255);
+    min-width: 100vh;
     max-height: 100vh;
     flex-wrap: wrap;
     
@@ -26,6 +28,47 @@ body{
     flex: 1 1 auto;
 }
 
+.adjust{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.colorChange, .pixelChange, .changeStyle{
+    width: 400px;
+}
+
+h1{
+    font-size: 40px;
+    color: aliceblue;
+}
+
+button{
+    width: 150px;
+    height: 25px;
+    border-radius: 5px;
+    color: rgb(8, 15, 22);
+}
+.pixel{
+    width: 200px;
+}
+
+label{
+    display: inline-block;
+    font-size: large;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+span{
+    font-size: large;
+    font-weight: bolder;
+}
+ 
 /* .square:hover{
     background-color: black;
 } */

@@ -2,15 +2,23 @@ const container = document.getElementById("container");
 const block = document.getElementById("square");
 const adjust = document.getElementById("adjust");
 const pixNumber = document.getElementById("pixNumber");
+const pixel = document.getElementById("pixel");
+const scale = document.querySelector("span");
 
-var horizontal = 100;
+pixel.addEventListener("input", ()=>{
+    let scaleNumber = pixel.value;
+    scale.textContent = ` ${scaleNumber} x ${scaleNumber}`
+})
+
+
+var horizontal = 16;
 var totalSquare = horizontal **2;
 
 function changePixel() {
     removeBlock()
-    horizontal = pixNumber.value;
+    horizontal = pixel.value;
     totalSquare = horizontal **2;
-    pixNumber.value="";
+    pixel.value=""; 
     generateBlock();
 
 };
@@ -35,8 +43,15 @@ function generateBlock(){
         container.style.width = `${lengthContainer}vh`;
         square.style.width = `${length}vh`;
         square.style.height = `${length}vh`;
+        let opacity = 0;
         square.addEventListener("mouseenter", () =>{
-            square.style.backgroundColor = "black";
+            // square.style.backgroundColor = "black";
+            opacity += 0.1;
+            if(opacity > 1){
+                opacity = 1;
+                console.log(opacity)
+            }
+            square.style.backgroundColor = `rgb(0 0 0 / ${opacity})`;
         }
         )
         container.appendChild(square);
