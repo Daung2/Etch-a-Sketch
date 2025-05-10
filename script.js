@@ -4,6 +4,7 @@ const adjust = document.getElementById("adjust");
 const pixNumber = document.getElementById("pixNumber");
 const pixel = document.getElementById("pixel");
 const scale = document.querySelector("span");
+const color = document.getElementById("color");
 
 pixel.addEventListener("input", ()=>{
     let scaleNumber = pixel.value;
@@ -22,6 +23,8 @@ function changePixel() {
     generateBlock();
 
 };
+
+
 
 addEventListener("load",()=>{
     generateBlock();
@@ -51,12 +54,23 @@ function generateBlock(){
                 opacity = 1;
                 console.log(opacity)
             }
-            square.style.backgroundColor = `rgb(0 0 0 / ${opacity})`;
+            getColorCode();
+            square.style.backgroundColor = getColorCode();
+            square.style.opacity = opacity;
         }
         )
         container.appendChild(square);
     }
 }
 
+function getColorCode(){
+    const number = "1234567890#abcdefghijklnmopqrstuvwxyz";
+    let colorCode = color.value;
+    let splitChars = colorCode.split('');
+    let filteredChars = splitChars.filter((char)=> number.includes(char));
+    let onlyColorCode = filteredChars.join('');
+    return onlyColorCode;
+}
 
 
+getColorCode()
