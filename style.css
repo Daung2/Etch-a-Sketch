@@ -37,7 +37,7 @@ body{
     width: 100%;
 }
 
-.colorChange, .pixelChange, .changeStyle{
+.colorChange, .pixelChange, #styleChange{
     width: 400px;
 }
 
@@ -69,6 +69,10 @@ span{
     font-weight: bolder;
 }
  
+.chosenStyle{
+    background-color: rgb(8, 15, 22);
+    color: azure;
+}
 /* .square:hover{
     background-color: black;
 } */

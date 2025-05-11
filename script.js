@@ -5,12 +5,31 @@ const pixNumber = document.getElementById("pixNumber");
 const pixel = document.getElementById("pixel");
 const scale = document.querySelector("span");
 const color = document.getElementById("color");
+const changeStyle = document.getElementById("styleChange");
+const Original  = document.getElementById("Original");
+const Random = document.getElementById("Random");
+let chosenColor = "original";
 
 pixel.addEventListener("input", ()=>{
     let scaleNumber = pixel.value;
     scale.textContent = ` ${scaleNumber} x ${scaleNumber}`
-})
+});
 
+changeStyle.addEventListener("click", (e) => {
+    let target = e.target;
+    switch(target.id) {
+        case "Original":
+            Original.classList.add("chosenStyle");
+            Random.classList.remove("chosenStyle");
+            chosenColor = "original";
+            break;
+        case "Random":
+            Original.classList.remove("chosenStyle");
+            Random.classList.add("chosenStyle");
+            chosenColor = "random";
+            break;
+    }
+});
 
 var horizontal = 16;
 var totalSquare = horizontal **2;
@@ -48,29 +67,26 @@ function generateBlock(){
         square.style.height = `${length}vh`;
         let opacity = 0;
         square.addEventListener("mouseenter", () =>{
-            // square.style.backgroundColor = "black";
-            opacity += 0.1;
-            if(opacity > 1){
-                opacity = 1;
-                console.log(opacity)
+            if(chosenColor == "original"){
+                opacity += 0.1;
+                if(opacity > 1){
+                    opacity = 1;
+                    console.log(opacity)
+                }
+                square.style.backgroundColor = color.value;
+                square.style.opacity = opacity;
             }
-            getColorCode();
-            square.style.backgroundColor = getColorCode();
-            square.style.opacity = opacity;
+            
+            else{
+                function random(){
+                    let randomCode = Math.floor(Math.random()*225);
+                    return randomCode;
+                }
+                square.style.backgroundColor = `rgb(${random()}, ${random()}, ${random()})`;
+
+            }
         }
         )
         container.appendChild(square);
     }
 }
-
-function getColorCode(){
-    const number = "1234567890#abcdefghijklnmopqrstuvwxyz";
-    let colorCode = color.value;
-    let splitChars = colorCode.split('');
-    let filteredChars = splitChars.filter((char)=> number.includes(char));
-    let onlyColorCode = filteredChars.join('');
-    return onlyColorCode;
-}
-
-
-getColorCode()
